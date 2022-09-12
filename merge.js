@@ -1,5 +1,31 @@
-function merge() {}
+function merge(left, right) {
+  let out = [];
+  let lIdx = 0;
+  let rIdx = 0;
 
-function mergeSort() {}
+  while (lIdx < left.length && rIdx < right.length) {
+    if (left[lIdx] < right[rIdx]) {
+      out.push(left[lIdx]);
+      lIdx++;
+    } else {
+      out.push(right[rIdx]);
+      rIdx++;
+    }
+  }
 
-module.exports = { merge, mergeSort};
+  if (lIdx < left.length) {
+    for (lIdx; lIdx < left.length; lIdx++) {
+      out.push(left[lIdx]);
+    }
+  } else {
+    for (rIdx; rIdx < right.length; rIdx++) {
+      out.push(right[rIdx]);
+    }
+  }
+  return out;
+
+}
+
+function mergeSort() { }
+
+module.exports = { merge, mergeSort };
